@@ -1,0 +1,513 @@
+-- All code done by Wolf Pickens
+
+drop database if exists chimera;
+create database chimera;
+use chimera;
+
+create table animal (
+species_name varchar(30),
+color varchar(20),
+texture varchar(20),
+head_shape varchar(20),
+body_shape varchar(20),
+limb_shape varchar(20),
+tail_shape varchar(20),
+primary key (species_name)
+);
+
+create table attributes (
+species_name varchar(30),
+diet varchar(20),
+size varchar(20),
+aggression varchar(20),
+active_time varchar(20),
+sociability varchar(20),
+foreign key (species_name) references animal (species_name)
+);
+
+create table head (
+species_name varchar(30),
+color varchar(20),
+texture varchar(20),
+head_shape varchar(20),
+eyes varchar(20),
+mouth varchar(20),
+head_accessory varchar(20),
+foreign key (species_name) references animal (species_name)
+);
+
+create table body (
+species_name varchar(30),
+color varchar(20),
+texture varchar(20),
+body_shape varchar(20),
+body_length varchar(20),
+body_accessory varchar(20),
+foreign key (species_name) references animal (species_name)
+);
+
+create table limbs (
+species_name varchar(30),
+color varchar(20),
+texture varchar(20),
+limb_shape varchar(20),
+limb_number int,
+limb_accessory varchar(20),
+foreign key (species_name) references animal (species_name)
+);
+
+create table tail (
+species_name varchar(30),
+color varchar(20),
+texture varchar(20),
+tail_shape varchar(20),
+tail_length varchar(20),
+tail_accessory varchar(20),
+foreign key (species_name) references animal (species_name)
+);
+
+insert into animal values (
+"Lion",
+"Yellow",
+"Furry",
+"Feline",
+"Quadruped",
+"Feline",
+"Feline"),
+(
+'Tiger',
+'Orange',
+'Furry',
+'Feline',
+'Quadruped',
+'Feline',
+'Feline'),
+(
+'Brown Bear',
+'Brown',
+'Furry',
+'Ursine',
+'Quadruped',
+'Ursine',
+'Ursine'),
+(
+'Black Bear',
+'Black',
+'Furry',
+'Ursine',
+'Quadruped',
+'Ursine',
+'Ursine'),
+(
+'Golden Retriever',
+'Yellow',
+'Furry',
+'Canine',
+'Quadruped',
+'Canine',
+'Canine'),
+(
+'Grey Wolf',
+'Grey',
+'Furry',
+'Canine',
+'Quadruped',
+'Canine',
+'Canine'),
+(
+'Crow',
+'Black',
+'Feathery',
+'Avian',
+'Biped',
+'Avian',
+'Avian'),
+(
+'Raven',
+'Black',
+'Feathery',
+'Avian',
+'Biped',
+'Avian',
+'Avian'),
+(
+'Kangaroo',
+'Brown',
+'Furry',
+'Macropodidae',
+'Biped',
+'Macropodidae',
+'Macropodidae'),
+(
+'Wallaby',
+'Brown',
+'Furry',
+'Macropodidae',
+'Biped',
+'Macropodidae',
+'Macropodidae');
+
+insert into attributes values (
+"Lion",
+"Carnivore",
+"Large",
+"Aggressive",
+"Diurnal",
+"Semi-Social"),
+(
+'Tiger',
+'Carnivore',
+'Large',
+'Aggressive',
+'Nocturnal',
+'Not Social'),
+(
+'Brown Bear',
+'Omnivore',
+'Large',
+'Aggressive',
+'Any Time',
+'Not Social'),
+(
+'Black Bear',
+'Omnivore',
+'Medium',
+'Cautious',
+'Crepuscular',
+'Not Social'),
+(
+'Golden Retriever',
+'Omnivore',
+'Medium',
+'Friendly',
+'Any Time',
+'Very Social'),
+(
+'Grey Wolf',
+'Carnivore',
+'Medium',
+'Cautious',
+'Nocturnal',
+'Very Social'),
+(
+'Crow',
+'Omnivore',
+'Very Small',
+'Cautious',
+'Crepuscular',
+'Very Social'),
+(
+'Raven',
+'Omnivore',
+'Small',
+'Cautious',
+'Diurnal',
+'Very Social'),
+(
+'Kangaroo',
+'Omnivore',
+'Large',
+'Aggressive',
+'Nocturnal',
+'Very Social'),
+(
+'Wallaby',
+'Herbivore',
+'Small',
+'Cautious',
+'Crepuscular',
+'Very Social');
+
+insert into head values (
+"Lion",
+"Yellow",
+"Furry",
+"Feline",
+"Feline",
+"Fully Fanged",
+"Mane"),
+(
+'Tiger',
+'Orange',
+'Furry',
+'Feline',
+'Feline',
+'Fully Fanged',
+NULL),
+(
+'Brown Bear',
+'Brown',
+'Furry',
+'Ursine',
+'Ursine',
+'Fully Fanged',
+NULL),
+(
+'Black Bear',
+'Black',
+'Furry',
+'Ursine',
+'Ursine',
+'Fully Fanged',
+NULL),
+(
+'Golden Retriever',
+'Yellow',
+'Furry',
+'Canine',
+'Canine',
+'Fully Fanged',
+NULL),
+(
+'Grey Wolf',
+'Grey',
+'Furry',
+'Canine',
+'Canine',
+'Fully Fanged',
+NULL),
+(
+'Crow',
+'Black',
+'Feathery',
+'Avian',
+'Avian',
+'Beak',
+NULL),
+(
+'Raven',
+'Black',
+'Feathery',
+'Avian',
+'Avian',
+'Beak',
+NULL),
+(
+'Kangaroo',
+'Brown',
+'Furry',
+'Macropodidae',
+'Macropodidae',
+'Herbivorous Incisor',
+NULL),
+(
+'Wallaby',
+'Brown',
+'Furry',
+'Macropodidae',
+'Macropodidae',
+'Herbivorous',
+NULL);
+
+insert into body values (
+'Lion',
+'Yellow',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Tiger',
+'Orange',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Brown Bear',
+'Brown',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Black Bear',
+'Black',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Golden Retriever',
+'Yellow',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Grey Wolf',
+'Grey',
+'Furry',
+'Quadruped',
+'Medium',
+NULL),
+(
+'Crow',
+'Black',
+'Feathery',
+'Biped',
+'Short',
+NULL),
+(
+'Raven',
+'Black',
+'Feathery',
+'Biped',
+'Short',
+NULL),
+(
+'Kangaroo',
+'Brown',
+'Furry',
+'Biped',
+'Medium',
+NULL),
+(
+'Wallaby',
+'Brown',
+'Furry',
+'Biped',
+'Short',
+NULL);
+
+insert into limbs values (
+'Lion',
+'Yellow',
+'Furry',
+'Feline',
+4,
+NULL),
+(
+'Tiger',
+'Orange',
+'Furry',
+'Feline',
+4,
+NULL),
+(
+'Brown Bear',
+'Brown',
+'Furry',
+'Ursine',
+4,
+NULL),
+(
+'Black Bear',
+'Black',
+'Furry',
+'Ursine',
+4,
+NULL),
+(
+'Golden Retriever',
+'Yellow',
+'Furry',
+'Canine',
+4,
+NULL),
+(
+'Grey Wolf',
+'Grey',
+'Furry',
+'Canine',
+4,
+NULL),
+(
+'Crow',
+'Black',
+'Feathery',
+'Avian',
+4,
+NULL),
+(
+'Raven',
+'Black',
+'Feathery',
+'Avian',
+4,
+NULL),
+(
+'Kangaroo',
+'Brown',
+'Furry',
+'Macropodidae',
+4,
+NULL),
+(
+'Wallaby',
+'Brown',
+'Furry',
+'Macropodidae',
+4,
+NULL);
+
+insert into tail values (
+'Lion',
+'Yellow',
+'Furry',
+'Feline',
+'Medium',
+'Tail Tuft'),
+(
+'Tiger',
+'Orange',
+'Furry',
+'Feline',
+'Medium',
+NULL),
+(
+'Brown Bear',
+'Brown',
+'Furry',
+'Ursine',
+'Very Short',
+NULL),
+(
+'Black Bear',
+'Black',
+'Furry',
+'Ursine',
+'Very Short',
+NULL),
+(
+'Golden Retriever',
+'Yellow',
+'Furry',
+'Canine',
+'Medium',
+NULL),
+(
+'Grey Wolf',
+'Grey',
+'Furry',
+'Canine',
+'Medium',
+NULL),
+(
+'Crow',
+'Black',
+'Feathery',
+'Avian',
+'Short',
+NULL),
+(
+'Raven',
+'Black',
+'Feathery',
+'Avian',
+'Short',
+NULL),
+(
+'Kangaroo',
+'Brown',
+'Furry',
+'Macropodidae',
+'Medium',
+NULL),
+(
+'Wallaby',
+'Brown',
+'Furry',
+'Macropodidae',
+'Medium',
+NULL);
